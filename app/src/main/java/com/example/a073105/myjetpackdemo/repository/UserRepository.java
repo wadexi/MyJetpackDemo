@@ -16,13 +16,16 @@ import retrofit2.Response;
 @Singleton
 public class UserRepository {
 
+    private Webservice webservice;
+
     @Inject
-    public Webservice webservice;
+    public UserRepository(Webservice webservice){
+        this.webservice = webservice;
+    }
 
 
-    public LiveData<User> getUser(String userId){
+    public void getUser(String userId,final MutableLiveData<User> data){
 
-        final MutableLiveData<User> data = new MutableLiveData<>();
         webservice.getUser().enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -31,10 +34,14 @@ public class UserRepository {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                User user =new User("error","error");
+                data.setValue(user);
             }
         });
 
-        return data;
     }
+
+
+
+
 }

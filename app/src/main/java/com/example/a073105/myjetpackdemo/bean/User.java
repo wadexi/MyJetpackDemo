@@ -7,6 +7,11 @@ public class User extends BaseData {
     private String name;
     private String logo;
 
+    public User(String name, String logo) {
+        this.name = name;
+        this.logo = logo;
+    }
+
     public String getName() {
         return name;
     }

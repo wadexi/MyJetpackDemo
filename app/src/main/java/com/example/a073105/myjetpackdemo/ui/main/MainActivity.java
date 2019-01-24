@@ -1,22 +1,48 @@
-package com.example.a073105.myjetpackdemo.ui;
+package com.example.a073105.myjetpackdemo.ui.main;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.a073105.myjetpackdemo.R;
+import com.example.a073105.myjetpackdemo.ui.main.fragments.user.UserProfileFragment;
+import com.example.a073105.myjetpackdemo.ui.main.fragments.user.UserProfileViewModel;
 
-public class MainActivity extends AppCompatActivity {
+import dagger.android.support.DaggerAppCompatActivity;
+
+
+public class MainActivity extends DaggerAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+
+    }
+
+    private void init() {
+        initView();
+        initFragment();
+    }
+
+    private void initFragment() {
+
+
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+
+        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragment,new UserProfileFragment());
+        fragmentTransaction.commitNow();
+    }
+
+    private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -28,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
