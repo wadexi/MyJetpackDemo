@@ -1,22 +1,12 @@
 package com.example.a073105.myjetpackdemo.di.module;
 
-import android.arch.lifecycle.ViewModel;
-
 import com.example.a073105.myjetpackdemo.bean.User;
 import com.example.a073105.myjetpackdemo.net.Webservice;
-import com.example.a073105.myjetpackdemo.ui.main.MainActivity;
-import com.example.a073105.myjetpackdemo.ui.main.fragments.user.UserProfileViewModel;
 
-import java.util.Map;
-
-import javax.inject.Provider;
 import javax.inject.Singleton;
 
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import dagger.multibindings.ClassKey;
-import dagger.multibindings.IntoMap;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

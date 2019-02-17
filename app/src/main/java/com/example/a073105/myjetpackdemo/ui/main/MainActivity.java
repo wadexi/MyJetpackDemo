@@ -14,11 +14,13 @@ import com.example.a073105.myjetpackdemo.R;
 import com.example.a073105.myjetpackdemo.ui.main.fragments.user.UserProfileFragment;
 import com.example.a073105.myjetpackdemo.ui.main.fragments.user.UserProfileViewModel;
 
+import dagger.Binds;
 import dagger.android.support.DaggerAppCompatActivity;
 
 
 public class MainActivity extends DaggerAppCompatActivity {
 
+    @Binds
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

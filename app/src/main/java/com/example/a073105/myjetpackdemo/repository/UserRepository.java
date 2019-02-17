@@ -1,6 +1,5 @@
 package com.example.a073105.myjetpackdemo.repository;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.example.a073105.myjetpackdemo.bean.User;
